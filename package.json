@@ -1,0 +1,27 @@
+{
+  "name": "productbuilder",
+  "version": "1.0.0",
+  "description": "AI-first product planning workspace for PRD, features, and user flows.",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jingawrite/productbuilder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jingawrite/productbuilder/issues"
+  },
+  "homepage": "https://github.com/jingawrite/productbuilder#readme",
+  "dependencies": {
+    "next": "^16.2.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  }
+}
