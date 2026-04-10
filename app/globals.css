@@ -1,0 +1,789 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f2fb;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-strong: #ffffff;
+  --border: rgba(108, 93, 211, 0.14);
+  --border-strong: rgba(108, 93, 211, 0.28);
+  --text: #17142b;
+  --muted: #726b8f;
+  --primary: #7a5af8;
+  --primary-deep: #5e43db;
+  --primary-soft: rgba(122, 90, 248, 0.12);
+  --accent: #40c4aa;
+  --shadow: 0 24px 80px rgba(42, 26, 102, 0.12);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+  --font: "Pretendard", "SUIT", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(156, 126, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 80%, rgba(100, 205, 177, 0.14), transparent 24%),
+    linear-gradient(180deg, #fcfbff 0%, #f4f2fb 100%);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 284px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.globalSidebar {
+  padding: 22px 14px;
+  border-right: 1px solid rgba(123, 99, 237, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(22px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+}
+
+.brand strong,
+.favoriteCard strong,
+.projectMeta .projectName,
+.contentCard h3,
+.detailHeader h3,
+.flowVersionHeader strong {
+  display: block;
+}
+
+.brand span,
+.favoriteCard span,
+.projectHint,
+.feedbackCard p,
+.quickCard span,
+.contentCard li,
+.editableBlock span,
+.editableBlock p,
+.detailBlock p,
+.detailBlock li,
+.versionCard span,
+.approvalBar span,
+.analysisBox li,
+.menuButton,
+.sectionLabel,
+.miniLabel {
+  color: var(--muted);
+}
+
+.brandMark {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--primary), #9f89ff);
+  color: white;
+  font-weight: 700;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: transparent;
+  text-align: left;
+}
+
+.menuButton.active,
+.menuButton:hover,
+.favoriteCard:hover,
+.quickCard:hover,
+.suggestionButton:hover,
+.versionCard:hover {
+  background: rgba(122, 90, 248, 0.08);
+  color: var(--text);
+}
+
+.favorites {
+  display: grid;
+  gap: 10px;
+}
+
+.sectionLabel,
+.miniLabel,
+.eyebrow,
+.columnLabel,
+.groupLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.favoriteCard,
+.feedbackCard,
+.quickCard,
+.contentCard,
+.composerCard,
+.chatPanel,
+.panel,
+.approvalBar,
+.detailPanel,
+.flowVersions,
+.treeCard,
+.treeRootCard,
+.directoryColumn,
+.versionCard {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.favoriteCard {
+  text-align: left;
+  padding: 14px;
+  border-radius: 18px;
+}
+
+.feedbackCard {
+  margin-top: auto;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.feedbackBadge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.contentArea {
+  min-width: 0;
+}
+
+.homeScreen {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 28px;
+  padding: 40px;
+}
+
+.homeHeader {
+  text-align: center;
+  max-width: 760px;
+}
+
+.homeHeader h1 {
+  margin: 10px 0 14px;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+}
+
+.homeHeader p,
+.chatIntro p,
+.analysisBox strong,
+.detailBlock p,
+.approvalBar strong + span {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.composerCard {
+  width: min(760px, 100%);
+  border-radius: 28px;
+  padding: 16px;
+}
+
+.composerCard textarea,
+.chatComposer textarea {
+  width: 100%;
+  border: 0;
+  resize: none;
+  background: transparent;
+  min-height: 120px;
+  outline: none;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.composerActions,
+.topbarActions,
+.panelHeader,
+.chatHeader,
+.composerFooter,
+.approvalActions,
+.directoryColumnHeader,
+.detailHeader,
+.flowVersionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.primaryButton,
+.ghostButton,
+.shareButton,
+.exportButton,
+.iconButton,
+.pillButton,
+.suggestionButton,
+.sendButton {
+  border-radius: 14px;
+  padding: 12px 16px;
+  transition: 0.2s ease;
+}
+
+.primaryButton,
+.shareButton,
+.sendButton {
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  color: white;
+}
+
+.primaryButton.small {
+  padding: 10px 14px;
+}
+
+.ghostButton,
+.iconButton,
+.pillButton,
+.suggestionButton {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.exportButton {
+  background: #17142b;
+  color: white;
+}
+
+.quickGrid {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quickCard {
+  border-radius: 22px;
+  padding: 18px;
+  text-align: left;
+}
+
+.quickCard strong {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.workspaceShell {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.chatPanel {
+  width: 360px;
+  margin: 18px 0 18px 18px;
+  padding: 18px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.chatHeaderActions {
+  display: flex;
+  gap: 8px;
+}
+
+.chatHeaderActions button,
+.flowVersionHeader button,
+.directoryColumnHeader button {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.chatIntro,
+.analysisBox,
+.tagBox {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(122, 90, 248, 0.07);
+}
+
+.avatar {
+  font-size: 42px;
+}
+
+.analysisBox ul,
+.contentCard ul,
+.detailBlock ul {
+  padding-left: 18px;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.chatSuggestions {
+  display: grid;
+  gap: 10px;
+}
+
+.suggestionButton {
+  text-align: left;
+}
+
+.tag {
+  display: inline-flex;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--primary-deep);
+  font-weight: 600;
+}
+
+.chatComposer {
+  margin-top: auto;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+}
+
+.composerFooter {
+  justify-content: flex-start;
+}
+
+.iconGhost {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.sendButton {
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.workspaceMain {
+  min-width: 0;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.topbar,
+.approvalBar,
+.panel {
+  border-radius: 28px;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(122, 90, 248, 0.12);
+}
+
+.workspaceTabs,
+.segmented {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 16px;
+  background: rgba(122, 90, 248, 0.08);
+}
+
+.tabButton,
+.segmented button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.tabButton.active,
+.segmented button.active {
+  background: white;
+  color: var(--text);
+  box-shadow: 0 10px 24px rgba(122, 90, 248, 0.14);
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panelHeader h2,
+.detailHeader h3 {
+  margin: 8px 0 0;
+}
+
+.sectionGrid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contentCard {
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.contentCard.wide {
+  grid-column: 1 / -1;
+}
+
+.editableBlock + .editableBlock {
+  margin-top: 18px;
+}
+
+.editableBlock span {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.editableBlock p {
+  margin: 0;
+  color: var(--text);
+}
+
+.treeCanvas {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 18px;
+  overflow: auto;
+}
+
+.treeColumn {
+  display: grid;
+  gap: 14px;
+}
+
+.treeRootCard,
+.treeCard {
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.treeCard.requirement {
+  background: linear-gradient(180deg, rgba(122, 90, 248, 0.14), rgba(255, 255, 255, 0.92));
+}
+
+.treeCard.spec {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.treeCard p,
+.treeCard span,
+.treeRootCard span {
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+.directoryLayout {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.9fr);
+  gap: 16px;
+}
+
+.directoryColumns {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.directoryColumn,
+.detailPanel,
+.flowVersions {
+  border-radius: 24px;
+  padding: 18px;
+}
+
+.directoryList {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.directoryRow {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(122, 90, 248, 0.06);
+}
+
+.directoryRow .order {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.directoryRow .name,
+.treeCard strong,
+.treeRootCard strong,
+.contentCard h3,
+.versionCard strong {
+  color: var(--text);
+}
+
+.detailPanel {
+  display: grid;
+  gap: 20px;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.metaGrid dt {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.metaGrid dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.detailBlock {
+  padding-top: 18px;
+  border-top: 1px solid rgba(122, 90, 248, 0.12);
+}
+
+.flowLayout {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 16px;
+}
+
+.flowCanvas {
+  display: grid;
+  gap: 18px;
+}
+
+.flowSection {
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(122, 90, 248, 0.12);
+}
+
+.flowSectionTitle {
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.flowRow {
+  display: flex;
+  gap: 0;
+  overflow: auto;
+  padding-bottom: 4px;
+}
+
+.flowNodeWrap {
+  display: flex;
+  align-items: center;
+}
+
+.flowNode {
+  min-width: 152px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border-strong);
+  background: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+.flowNode.start {
+  background: #1d1838;
+  color: white;
+}
+
+.flowNode.section {
+  background: linear-gradient(135deg, var(--primary), #9a86ff);
+  color: white;
+}
+
+.flowNode.page {
+  background: #f4efff;
+}
+
+.flowNode.action {
+  background: #eefbf8;
+  border-color: rgba(64, 196, 170, 0.36);
+}
+
+.flowConnector {
+  width: 42px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(122, 90, 248, 0.2), rgba(122, 90, 248, 0.8));
+}
+
+.flowVersions {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.versionGroup {
+  display: grid;
+  gap: 10px;
+}
+
+.versionCard {
+  text-align: left;
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.versionCard.active {
+  border-color: var(--primary);
+  background: rgba(122, 90, 248, 0.09);
+}
+
+.approvalBar {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 1280px) {
+  .shell {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+
+  .globalSidebar {
+    padding-inline: 10px;
+  }
+
+  .brand strong,
+  .brand span,
+  .menuButton,
+  .sectionLabel,
+  .favoriteCard,
+  .feedbackCard {
+    display: none;
+  }
+
+  .quickGrid,
+  .sectionGrid,
+  .directoryColumns,
+  .flowLayout,
+  .directoryLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .workspaceShell {
+    grid-template-columns: 1fr;
+  }
+
+  .chatPanel {
+    width: auto;
+    margin-right: 18px;
+  }
+
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .globalSidebar {
+    display: none;
+  }
+
+  .homeScreen,
+  .workspaceMain {
+    padding: 16px;
+  }
+
+  .chatPanel {
+    margin: 16px;
+  }
+
+  .quickGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .composerActions,
+  .topbarActions,
+  .panelHeader,
+  .approvalBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .workspaceTabs {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .approvalActions {
+    width: 100%;
+  }
+}
